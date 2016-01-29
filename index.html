@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+   <title>iDictionary</title>
+
+
+   <link rel="stylesheet" href="css/bootstrap.css">
+   <link rel="stylesheet" href="css/style.css">
+
+   <!-- ionic/angularjs js -->
+   <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+   <!-- cordova script (this will be a 404 during development) -->
+   <script src="cordova.js"></script>
+
+   <!-- your app's js -->
+   <script src="js/app.js"></script>
+</head>
+
+<body class="ng-cloak" ng-app="starter" ng-controller="MainController">
+      <div id="wrap">
+         <div class="container">
+            <header>
+               {{name}}
+            </header>
+            <div class="search-bar">
+               <div class="form">
+                  <form class="form-inline" ng-submit="translate()">
+                     <div class="form-group">
+                        <input type="text" class="form-control" ng-model="search" placeholder="Type word">
+                     </div>
+                     <button type="submit" class="btn btn-lg">Search</button>
+                  </form>
+               </div>
+               <!-- .form -->
+
+               <!-- Error Panel -->
+               <div class="panel panel-error" ng-if="result &amp;&amp; data.length == 0">
+                  <div class="panel-body">
+                     No Results
+                  </div>
+               </div>
+
+               <!-- Output Panel -->
+               <div class="panel" ng-show="result" ng-repeat="definition in data">
+                  <div class="panel-heading">
+                     <h4>
+                     {{definition.text | uppercase}} - {{definition.pos}} [&quot;{{definition.ts}}&quot;]
+                  </h4>
+                  </div>
+                  <div class="panel-body">
+                     <ul>
+                        <li ng-repeat="translation in definition.tr">
+                           <b>{{translation.text | uppercase}}</b> - {{translation.pos}}
+                           <br>
+                           <i ng-if="translation.hasOwnProperty(&apos;syn&apos;)">Synonyms:</i>
+                           <ul>
+                              <li ng-repeat="synonym in translation.syn">
+                                 {{synonym.text}} - {{synonym.pos}}
+                              </li>
+                           </ul>
+                           <i ng-if="translation.hasOwnProperty(&apos;mean&apos;)">Meaning:</i>
+                           <ul>
+                              <li ng-repeat="meaning in translation.mean">
+                                 {{meaning.text}}
+                              </li>
+                           </ul>
+                           <i ng-if="translation.hasOwnProperty(&apos;ex&apos;)">Examples:</i>
+                           <ul>
+                              <li ng-repeat="example in translation.ex">
+                                 {{example.text}} - {{example.tr[0].text}}
+                              </li>
+                           </ul>
+                        </li>
+                     </ul>
+                  </div>
+                  <!--.panel-body-->
+               </div>
+               <!--.panel panel-primary-->
+            </div>
+            <!--.search-bar-->
+         </div>
+         <!--.container-->
+
+      </div>
+
+   <script src="js/jquery.min.js"></script>
+   <script src="js/bootstrap.min.js"></script>
+   <script src="js/dictionary.js"></script>
+</body>
+
+</html>

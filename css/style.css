@@ -1,0 +1,95 @@
+body{
+   background-image: url(../img/upfeathers.png);
+}
+
+.container{
+   margin-top: 20px;
+   font-family: 'Didot';
+}
+
+header{
+   text-align: center;
+   font-size: 35px;
+   letter-spacing: 2px;
+   margin-bottom: 10px;
+   color: #8b7979;
+}
+
+.form{ 
+   text-align: center;
+   font-size: 20px;
+   color: #8b7979;
+}
+
+/* Input field customization */
+input[type="text"]:focus{
+   border-color: #8b7979;
+   box-shadow: 0 1px 1px rgb(139, 121, 121) inset, 0 0 8px rgb(139, 121, 121);
+}
+
+
+.alert{
+   margin-top: 30px;
+   display: inline-block;
+}
+
+
+
+li{
+   margin-bottom: 10px;
+}
+
+/* Removing Border Radius */
+.form-control,.panel,.panel-primary,.btn{
+   border-radius: 0;
+}
+
+/* Custom Button */
+.btn, .btn:focus, .btn:active{
+   color: white;
+   background: #766363;
+   border-color: #766363;
+   outline: 0 !important;
+   width: 50%;
+}
+
+/* Custom panel */
+.panel{
+   width: 100%;
+   margin: 10px auto;
+   border: 1px solid #766363;
+   background: rgba(255, 255, 255, 0.69);
+}
+
+.panel-error{
+   text-align: center;
+}
+
+.panel-heading{
+   background-color: #766363;
+   color: white;
+   border-radius: 0;
+}
+
+.panel-body{
+   padding-top: 10px;
+   font-size: 17px;
+   color: #766363;
+}
+
+.panel-body>ul{
+   padding-left: 15px;
+}
+
+/* Cloaking the content */
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+@media screen and (min-width: 625px){
+
+	button.btn{
+		width: 10%;
+		padding: 4px;
+	}
+}
